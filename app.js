@@ -3,6 +3,7 @@ const app = express();
 
 //const path = require('path');
 //const tasks = require('./routes/tasks');
+
 // Hier wird für datenbankverbindung gebraucht
 const mongoose = require('mongoose')
 require('dotenv/config');
@@ -27,6 +28,10 @@ app.listen(port, () => {
 // res.status(404).send('resource not found')
 //});
 
+//Import Routes
+const tasksRoute = require('./routes/tasks');
+
+app.use('/tasks', tasksRoute)
 
 
 //Hier wird mit der db connectet

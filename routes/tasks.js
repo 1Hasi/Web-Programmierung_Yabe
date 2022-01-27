@@ -15,17 +15,16 @@ router.get('/meineprodukte/produktanlegen', (req, res) => {
 });
 
 router.post('/meineprodukte/produktanlegen', (req, res) => {
-    console.log(req.body);
     const task = new Task ({
         title: req.body.title,
         description: req.body.description
     });
     task.save()
         .then(data => {
-        res.json(data);
+        res.status(201).json(data);
     })
         .catch (err => {
-        res.json({message: err});
+        res.status(400).json({message: err});
     }); 
 });
 

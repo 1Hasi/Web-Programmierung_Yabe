@@ -17,7 +17,7 @@ const port = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 //Hier wird die Webside (indexdatei) im ordner public ausgegeben
-//app.use(express.static('./public'));
+app.use(express.static('./public'));
 
 // server wird auf port 5000 gehostet
 app.listen(port, () => {
@@ -42,6 +42,7 @@ mongoose.connect(process.env.MONGO_URI, () =>
 } catch (error) {
   console.log(error);
 };
+
 
 /**
   const start = async () => {

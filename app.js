@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const mongoose = require ('mongoose');
+
 const path = require('path');
 //const tasks = require('./routes/tasks');
 // Hier wird für datenbankverbindung gebraucht
@@ -28,6 +30,8 @@ app.listen(5000, () => {
 //const port = 5000;
 
 //Hier wird mit der db connectet
+
+
 /**
   const start = async () => {
   try {

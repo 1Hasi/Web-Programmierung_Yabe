@@ -16,9 +16,12 @@ router.get('/meineprodukte/produktanlegen', (req, res) => {
 
 router.post('/meineprodukte/produktanlegen', (req, res) => {
     const task = new Task ({
-        title: req.body.title,
-        description: req.body.description
+        produkt_ersteller: req.body.produkt_ersteller,
+        produkt_mindestwert: req.body.produkt_mindestwert,
+        produkt_beschreibung: req.body.produkt_beschreibung,
+        produkt_bild: req.body.produkt_bild
     });
+    
     task.save()
         .then(data => {
         res.status(201).json(data);

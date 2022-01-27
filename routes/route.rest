@@ -1,0 +1,14 @@
+GET http://localhost:5000/meineprodukte/produktanlegen
+
+###
+
+POST http://localhost:5000/meineprodukte/produktanlegen
+Content-Type: application/json
+
+{
+    "produkt_ersteller" : "Max der Große",
+    "produkt_bezeichnung": "XXL Dildo",
+    "produkt_mindestwert": "10€", 
+    "produkt_beschreibung": "Das ist ein hoch exklusiver Riesendildo. Wurde nur zwei mal benutzt. Angaben ohne Gewähr.",
+    "produkt_bild" : "dildo.png"
+}

@@ -20,23 +20,23 @@ const TaskSchema = mongoose.Schema({
    
   produkt_ersteller: {
     type: String,
-    required: true,
+    required: true
   },
   produkt_bezeichnung: {
     type: String,
-    required: true,
+    required: true
   },
   produkt_mindestwert: {
-    type: Int,
-    required: true,
+    type: String,
+    required: true
   },
   produkt_beschreibung: {
     type: String,
-    required: true,
+    required: true
   },
   produkt_bild: {
     type: String,
-    required: true,
+    required: true
   }
 
 });

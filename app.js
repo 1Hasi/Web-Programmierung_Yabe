@@ -16,18 +16,18 @@ app.use(express.static('./public'));
 // server wird auf port 5000 gehostet
 app.listen(port, () => {
   console.log('server is listening on port ${port} ....')
-});
+}); 
 
-// für alle nicht definierten routen wird fehler ausgegeben
-app.all('*', (req, res) => {
-res.status(404).send('resource not found')
-});
 
 //Import Routes
 const tasksRoute = require('./routes/tasks');
 
 app.use('/tasks', tasksRoute)
 
+// für alle nicht definierten routen wird fehler ausgegeben
+ app.all('*', (req, res) => {
+res.status(404).send('resource not found')
+}); 
 
 //Hier wird mit der db connectet
 try {

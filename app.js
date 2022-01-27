@@ -3,6 +3,7 @@ const app = express();
 
 const bodyParser = require('body-parser')
 app.use(bodyParser.json());
+const cors = require('cors');
 
 //const path = require('path');
 //const tasks = require('./routes/tasks');
@@ -13,7 +14,9 @@ require('dotenv/config');
 
 const port = 5000;
 
-// Middleware: Hier wird die Webside (indexdatei) im ordner public ausgegeben
+// Middleware: 
+app.use(cores());
+//Hier wird die Webside (indexdatei) im ordner public ausgegeben
 app.use(express.static('./public'));
 
 // server wird auf port 5000 gehostet

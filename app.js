@@ -17,17 +17,17 @@ const port = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 //Hier wird die Webside (indexdatei) im ordner public ausgegeben
-app.use(express.static('./public'));
+//app.use(express.static('./public'));
 
 // server wird auf port 5000 gehostet
 app.listen(port, () => {
-  console.log('server is listening on port 5000 ....')
+  console.log('server is running on 5000 ...')
 }); 
 
 //Import Routes
 const tasksRoute = require('./routes/tasks');
 
-app.use('/tasks', tasksRoute)
+app.use('/', tasksRoute)
 
 // für alle nicht definierten routen wird fehler ausgegeben
  app.all('*', (req, res) => {

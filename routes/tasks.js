@@ -3,14 +3,18 @@ const router = express.Router();
 const Task = require('../modules/Task');
 
 router.get('/', (req, res) => {
-    res.send('klappt');
+    res.send('Hier ist unser Shop lol');
 });
 
-router.get('/home', (req, res) => {
-    res.send('home geht auch');
+router.get('/meineprodukte', (req, res) => {
+    res.send('hier liste der produkte des user');
 });
 
-router.post('/', (req, res) => {
+router.get('/meineprodukte/produktanlegen', (req, res) => {
+    res.send('hier kann der user ein produkt anlegen');
+});
+
+router.post('/meineprodukte/produktanlegen', (req, res) => {
     console.log(req.body);
     const task = new Task ({
         title: req.body.title,

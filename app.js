@@ -8,12 +8,7 @@ const app = express();
 const mongoose = require('mongoose')
 require('dotenv/config');
 
-//app.get('/hello', (req, res) => {
-//  res.send('Task Manager')
-//})
 const port = 5000;
-
-// app.use('/api/v1/tasks', tasks);
 
 // Middleware: Hier wird die Webside (indexdatei) im ordner public ausgegeben
 app.use(express.static('./public'));
@@ -24,9 +19,9 @@ app.listen(port, () => {
 });
 
 // für alle nicht definierten routen wird fehler ausgegeben
-//app.all('*', (req, res) => {
-// res.status(404).send('resource not found')
-//});
+app.all('*', (req, res) => {
+res.status(404).send('resource not found')
+});
 
 //Import Routes
 const tasksRoute = require('./routes/tasks');

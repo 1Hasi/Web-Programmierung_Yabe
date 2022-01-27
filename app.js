@@ -15,7 +15,7 @@ require('dotenv/config');
 const port = 5000;
 
 // Middleware: 
-app.use(cores());
+app.use(cors());
 //Hier wird die Webside (indexdatei) im ordner public ausgegeben
 app.use(express.static('./public'));
 

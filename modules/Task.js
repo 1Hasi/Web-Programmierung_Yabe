@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const TaskSchema = new mongoose.Schema({
+const TaskSchema = mongoose.Schema({
  
     //name: String,
     //completed: Boolean,
@@ -18,11 +18,11 @@ const TaskSchema = new mongoose.Schema({
 
   title: {
     type: String,
-    required: true,
+    required: true
   },
   description: {
     type: String,
-    required: true,
+    required: true
   }
 
 });

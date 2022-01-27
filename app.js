@@ -21,9 +21,8 @@ app.use(express.static('./public'));
 
 // server wird auf port 5000 gehostet
 app.listen(port, () => {
-  console.log('server is listening on port ${port} ....')
+  console.log('server is listening on port 5000 ....')
 }); 
-
 
 //Import Routes
 const tasksRoute = require('./routes/tasks');

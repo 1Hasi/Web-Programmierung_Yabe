@@ -1,11 +1,9 @@
 const express = require('express');
 const app = express();
-const mongoose = require ('mongoose');
-
 const path = require('path');
 //const tasks = require('./routes/tasks');
 // Hier wird für datenbankverbindung gebraucht
-//const connectDB = require('./db/connect')
+const connectDB = require('./db/connect')
 require('dotenv').config();
 
 //app.get('/hello', (req, res) => {

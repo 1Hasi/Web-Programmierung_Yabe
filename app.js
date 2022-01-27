@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
-const path = require('path');
+const mongoose = require ('mongoose');
+
+//const path = require('path');
 //const tasks = require('./routes/tasks');
 // Hier wird für datenbankverbindung gebraucht
 const connectDB = require('./db/connect')
@@ -10,10 +12,10 @@ require('dotenv').config();
 //  res.send('Task Manager')
 //})
 
-//app.use('/api/v1/tasks', tasks);
+app.use('/api/v1/tasks', tasks);
 
 // Middleware: Hier wird die Webside (indexdatei) im ordner public ausgegeben
- app.use(express.static('./public'));
+// app.use(express.static('./public'));
 
 // server wird auf port 5000 gehostet
 app.listen(5000, () => {

@@ -6,9 +6,9 @@ POST http://localhost:5000/meineprodukte/produktanlegen
 Content-Type: application/json
 
 {
-    "produkt_ersteller" : "David",
-    "produkt_bezeichnung": "Dildo",
-    "produkt_mindestwert": "20€", 
-    "produkt_beschreibung": "Angaben ohne Gewähr.",
-    "produkt_bild" : "dick.png"
+    "produkt_ersteller" : "Janina",
+    "produkt_bezeichnung": "Wasserflasche",
+    "produkt_mindestwert": "30€", 
+    "produkt_beschreibung": "Personalisiert mit Namen.",
+    "produkt_bild" : "flasche.png"
 }

@@ -9,7 +9,7 @@ class App extends React.Component{
   }
 
   callAPI(){
-    fetch("http://localhost:5000/meineprodukte")
+    fetch("http://localhost:5000/meineprodukte/produktanlegen")
       .then(res => res.text())
       .then(res => this.setState({apiResponse: res}));
   }

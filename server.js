@@ -21,7 +21,7 @@ app.use(express.static('./public'));
 
 // server wird auf port 5000 gehostet
 app.listen(port, () => {
-  console.log('server is running on 5000 ...')
+  console.log(`server is running on ${port}`)
 }); 
 
 //Import Routes

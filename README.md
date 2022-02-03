@@ -17,3 +17,5 @@ Syntax get anfrage:
 //   adding to static assets
 //   SSR
 // })
+
+im frontend unter package.json, die IP Adresse bei proxy ändern und hinten :5000 anhängen

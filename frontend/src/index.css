@@ -7,6 +7,7 @@ body {
   height: 100vh;
   font-size: 1.6rem;
   font-family: Helvetica, Arial, sans-serif;
+  background-color: #edf6f9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -27,7 +28,7 @@ body {
 }
 header {
   grid-area: header;
-  background-color: #203040;
+  background-color: #006d77;
 }
 main {
   grid-area: main;
@@ -35,8 +36,8 @@ main {
 }
 footer {
   grid-area: footer;
-  background-color: #203040;
-  color: #ffffff;
+  background-color: #006d77;
+  color: #edf6f9;
 }
 /* Common */
 h1 {
@@ -49,10 +50,11 @@ h2 {
 }
 
 a {
+  color: #001524;
   text-decoration: none;
 }
 a:hover {
-  color: #ff8000;
+  color: #FFDDD2;
 }
 ul {
   padding: 0;
@@ -65,30 +67,35 @@ li {
 button {
   padding: 1rem;
   border-radius: 0.5rem;
-  border: 0.1rem #a4a4a4 solid;
+  border: 0.1rem #006D77 solid;
   font-size: 1.6rem;
   font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f8f8f8;
+  background-color: #E29578;
   cursor: pointer;
 }
 button:hover {
-  border: 0.1rem #404040 solid;
+  border: 0.1rem #83C5BE solid;
+  background-color: #FFDDD2;
 }
 button.primary {
-  background-color: #f0c040;
+  background-color: #E29578;
+}
+button.primary:hover {
+  border: 0.1rem #83C5BE solid;
+  background-color: #FFDDD2;
 }
 button.block {
   width: 100%;
 }
 /* Header */
 header a {
-  color: #ffffff;
+  color: #edf6f9;
   padding: 1rem;
 }
 a.brand {
-  color: #ffffff;
+  color: #edf6f9;
   font-size: 3rem;
   font-weight: bold;
 }
@@ -125,8 +132,8 @@ img.large {
 
 /* Card */
 .card {
-  border: 0.1rem #c0c0c0 solid;
-  background-color: #f8f8f8;
+  border: 0.1rem #83C5BE solid;
+  background-color: #83C5BE;
   border-radius: 0.5rem;
   margin: 1rem;
 }

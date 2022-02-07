@@ -3,23 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 
-/*class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state={apiResponse: ""}
-  }
-
-  callAPI(){
-    fetch("http://localhost:5000/meineprodukte/produktanlegen")
-      .then(res => res.text())
-      .then(res => this.setState({apiResponse: res}));
-  }
-
-  componentWillMount(){
-    this.callAPI();
-  }*/
-
-
   function App() {
     return (
       <BrowserRouter>
@@ -27,7 +10,7 @@ import ProductScreen from './screens/ProductScreen';
           <header className="row">
             <div>
               <a className="brand" href="/">
-                amazona
+                Y4B3
               </a>
             </div>
             <div>
@@ -41,16 +24,10 @@ import ProductScreen from './screens/ProductScreen';
               <Route path="/" element={<HomeScreen />} exact></Route>
             </Routes>
           </main>
-          <footer className="row center">All right reserved</footer>
+          <footer className="row center">Y4B3 4 EVER</footer>
         </div>
       </BrowserRouter>
     );
   }
-
-/* <div className="App">
-      <header> 
-      </header>
-      <p>{this.state.apiResponse}</p>
-    </div>*/
 
 export default App;

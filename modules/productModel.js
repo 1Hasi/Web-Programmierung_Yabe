@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+import mongoose from 'mongoose';
 
-const TaskSchema = mongoose.Schema({
+const productSchema = new mongoose.Schema({
  
     //name: String,
     //completed: Boolean,
@@ -41,4 +41,5 @@ const TaskSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Task', TaskSchema)
+const Product = mongoose.model('Product', productSchema);
+export default Product;

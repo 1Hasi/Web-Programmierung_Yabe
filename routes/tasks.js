@@ -1,7 +1,8 @@
-const express = require('express');
-const router = express.Router();
-const Task = require('../modules/Task');
-const data = require('../data');
+import Router from 'express';
+import Product from '../modules/productModel.js';
+import data from '../data.js';
+
+const router = Router();
 
 router.get('/', (req, res) => {
     res.send('Hier ist unser Shop lol');
@@ -23,7 +24,7 @@ router.get('/meineprodukte', (req, res) => {
 // Alle Produkte abfragen
 router.get('/meineprodukte/produktanlegen', async (req, res) => {
     try {
-        const task = await Task.find()
+        const task = await find()
         res.json(task);
     } catch(err) {
         res.status(500).json({message: err.message})
@@ -32,7 +33,7 @@ router.get('/meineprodukte/produktanlegen', async (req, res) => {
 
 // Produktanlegen 
 router.post('/meineprodukte/produktanlegen', (req, res) => {
-    const task = new Task ({
+    const task = new Product ({
         produkt_ersteller: req.body.produkt_ersteller,
         produkt_bezeichnung: req.body.produkt_bezeichnung,
         produkt_mindestwert: req.body.produkt_mindestwert,
@@ -49,4 +50,4 @@ router.post('/meineprodukte/produktanlegen', (req, res) => {
     }); 
 });
 
-module.exports = router;
+export default router;

@@ -1,16 +1,15 @@
-const express = require('express');
-const app = express();
-
-const bodyParser = require('body-parser');
-const cors = require('cors');
-
-//const path = require('path');
-//const tasks = require('./routes/tasks');
-
+import express from 'express';
+import bodyParser from 'body-parser';
+import cors from 'cors';
 // Hier wird für datenbankverbindung gebraucht
-const mongoose = require('mongoose')
-require('dotenv/config');
+import mongoose from 'mongoose';
+import 'dotenv/config';
 
+//Import Routes
+import tasksRoute from './routes/tasks.js';
+import productRouter from './routes/productRouter.js';
+
+const app = express();
 const port = 5000;
 
 // Middleware: 
@@ -24,10 +23,8 @@ app.listen(port, () => {
   console.log(`server is running on ${port}`)
 }); 
 
-//Import Routes
-const tasksRoute = require('./routes/tasks');
-
-app.use('/', tasksRoute)
+app.use('/', tasksRoute);
+app.use ('/api/products', productRouter);
 
 // für alle nicht definierten routen wird fehler ausgegeben
  app.all('*', (req, res) => {
@@ -36,7 +33,7 @@ res.status(404).send('resource not found')
 
 //Hier wird mit der db connectet
 try {
-mongoose.connect(process.env.MONGO_URI, () =>
+  mongoose.connect(process.env.MONGO_URI, () =>
   console.log('Connected to DB')
 );
 } catch (error) {

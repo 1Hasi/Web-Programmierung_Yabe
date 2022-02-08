@@ -1,5 +1,5 @@
 import Router from 'express';
-import Product from '../modules/productModel.js';
+
 
 
 const router = Router();

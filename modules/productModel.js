@@ -18,26 +18,17 @@ const productSchema = new mongoose.Schema({
 
   //Produkte: ProduktID, UserID produkt_ersteller (Ersteller), Bezeichnung produkt_bezeichnung, produkt_mindestwert, Beschreibung produkt_beschreibung, Bild produkt_bild
    
-  produkt_ersteller: {
-    type: String,
-    required: true
-  },
-  produkt_bezeichnung: {
-    type: String,
-    required: true
-  },
-  produkt_mindestwert: {
-    type: String,
-    required: true
-  },
-  produkt_beschreibung: {
-    type: String,
-    required: true
-  },
-  produkt_bild: {
-    type: String,
-    required: true
-  }
+  name: {type: String, required: true},
+
+  bild: {type: String, required: true },
+
+  startpreis: {type: Number, required: true},
+
+  beschreibung: {type: String, required: true},
+
+  kategorie: {type: String, required: true},
+
+  rating: {type: Number, required: true},
 
 });
 

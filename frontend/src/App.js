@@ -16,6 +16,7 @@ import ProductScreen from './screens/ProductScreen';
             <div>
               <a href="/cart">Cart</a>
               <a href="/signin">Sign In</a>
+              <a href="/test">test</a>
             </div>
           </header>
           <main>

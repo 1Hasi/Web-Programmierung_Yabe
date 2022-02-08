@@ -7,6 +7,7 @@ import 'dotenv/config';
 
 //Import Routes
 import tasksRoute from './routes/tasks.js';
+import userRouter from './routes/userRouter.js';
 import productRouter from './routes/productRouter.js';
 
 const app = express();
@@ -24,7 +25,12 @@ app.listen(port, () => {
 }); 
 
 app.use('/', tasksRoute);
+app.use('/api/users', userRouter);
 app.use ('/api/products', productRouter);
+
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
+});
 
 // für alle nicht definierten routen wird fehler ausgegeben
  app.all('*', (req, res) => {

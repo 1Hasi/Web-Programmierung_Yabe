@@ -1,6 +1,6 @@
 import Router from 'express';
 import Product from '../modules/productModel.js';
-import data from '../data.js';
+
 
 const router = Router();
 
@@ -8,9 +8,6 @@ router.get('/', (req, res) => {
     res.send('Hier ist unser Shop lol');
 });
 
-router.get('/api/products', (req, res) => {
-    res.send(data.products);
-});
 
 router.get('/meineprodukte', (req, res) => {
     res.send('hier liste der produkte des user');

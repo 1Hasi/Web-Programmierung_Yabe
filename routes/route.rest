@@ -3,7 +3,7 @@ GET http://localhost:5000/meineprodukte/produktanlegen
 ###
 
 
-POST http://localhost:5000/api/users/login
+POST http://localhost:5000/api/users/signin
 Content-Type: application/json
 
 {"email": "hajih.wwi20@student.dhbw-heidenheim.de",

@@ -1,29 +1,54 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
-
+import SigninScreen from './screens/SigninScreen';
 
   function App() {
+
+    const userSignin = useSelector((state) => state.userSignin);
+    const { userInfo } = userSignin;
+    const dispatch = useDispatch();
+    const signoutHandler = () => {
+      dispatch(signout());
+    };
+
     return (
       <BrowserRouter>
         <div className="grid-container">
           <header className="row">
             <div>
-              <a className="brand" href="/">
+              <Link className="brand" to="/">
                 Y4B3
-              </a>
+              </Link>
             </div>
             <div>
-              <a href="/meineprodukte">Meine Produkte</a>
-              <a href="/warenkorb">Warenkorb</a>
-              <a href="/login">Log In</a>
+              <Link to="/meineprodukte">Meine Produkte</Link>
+              <Link to="/warenkorb">Warenkorb</Link>
+              {userInfo ? (
+              <div className="dropdown">
+                <Link to="#">
+                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                </Link>
+                <ul className="dropdown-content">
+                  <li>
+                    <Link to="#signout" onClick={signoutHandler}>
+                      Sign Out
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            ) : (
+              <Link to="/signin">Sign In</Link>
+            )}
             </div>
           </header>
           <main>
             <Routes>
-              <Route path="/product/:id" element={<ProductScreen />}></Route>
-              <Route path="/" element={<HomeScreen />} exact></Route>
+              <Route path="/product/:id" component={ProductScreen}></Route>
+              <Route path="/signin" component={SigninScreen}></Route>
+              <Route path="/" component={HomeScreen} exact></Route>
             </Routes>
           </main>
           <footer className="row center">Y4B3 4 EVER</footer>

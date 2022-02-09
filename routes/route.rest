@@ -2,13 +2,9 @@ GET http://localhost:5000/meineprodukte/produktanlegen
 
 ###
 
-POST http://localhost:5000/meineprodukte/produktanlegen
+
+POST http://localhost:5000/api/users/login
 Content-Type: application/json
 
-{
-    "produkt_ersteller" : "Janina",
-    "produkt_bezeichnung": "Wasserflasche",
-    "produkt_mindestwert": "30€", 
-    "produkt_beschreibung": "Personalisiert mit Namen.",
-    "produkt_bild" : "flasche.png"
-}
+{"email": "hajih.wwi20@student.dhbw-heidenheim.de",
+"password": "1234"}

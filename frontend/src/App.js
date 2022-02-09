@@ -15,9 +15,9 @@ import ProductScreen from './screens/ProductScreen';
               </a>
             </div>
             <div>
-              <a href="/cart">Cart</a>
-              <a href="/signin">Sign In</a>
-              <a href="/test">test</a>
+              <a href="/meineprodukte">Meine Produkte</a>
+              <a href="/warenkorb">Warenkorb</a>
+              <a href="/login">Log In</a>
             </div>
           </header>
           <main>

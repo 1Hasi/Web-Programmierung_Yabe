@@ -25,12 +25,12 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/">Back to result</Link>
+          <Link to="/">← Zur Übersicht</Link>
           <div className="row top">
             <div className="col-2">
               <img
                 className="large"
-                src={product.image}
+                src={product.bild}
                 alt={product.name}
               ></img>
             </div>
@@ -45,9 +45,9 @@ export default function ProductScreen(props) {
                     numReviews={product.numReviews}
                   ></Rating>
                 </li>
-                <li>Pirce : ${product.price}</li>
+                <li>Startpreis: {product.startpreis}€</li>
                 <li>
-                  Description:
+                  Beschreibung:
                   <p>{product.beschreibung}</p>
                 </li>
               </ul>
@@ -57,8 +57,8 @@ export default function ProductScreen(props) {
                 <ul>
                   <li>
                     <div className="row">
-                      <div>Price</div>
-                      <div className="price">${product.price}</div>
+                      <div>Startpreis</div>
+                      <div className="price">{product.startpreis}€</div>
                     </div>
                   </li>
                   <li>
@@ -66,15 +66,15 @@ export default function ProductScreen(props) {
                       <div>Status</div>
                       <div>
                         {product.countInStock > 0 ? (
-                          <span className="success">In Stock</span>
+                          <span className="success">Auf Lager</span>
                         ) : (
-                          <span className="danger">Unavailable</span>
+                          <span className="danger">Ausverkauft</span>
                         )}
                       </div>
                     </div>
                   </li>
                   <li>
-                    <button className="primary block">Add to Cart</button>
+                    <button className="primary block">Zum Warenkorb</button>
                   </li>
                 </ul>
               </div>

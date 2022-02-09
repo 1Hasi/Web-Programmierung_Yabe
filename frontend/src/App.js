@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { signout } from './actions/userActions';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import SigninScreen from './screens/SigninScreen';
@@ -46,9 +47,9 @@ import SigninScreen from './screens/SigninScreen';
           </header>
           <main>
             <Routes>
-              <Route path="/product/:id" component={ProductScreen}></Route>
-              <Route path="/signin" component={SigninScreen}></Route>
-              <Route path="/" component={HomeScreen} exact></Route>
+              <Route path="/product/:id" element={<ProductScreen/>}></Route>
+              <Route path="/signin" element={<SigninScreen/>}></Route>
+              <Route path="/" element={<HomeScreen/>} exact></Route>
             </Routes>
           </main>
           <footer className="row center">Y4B3 4 EVER</footer>

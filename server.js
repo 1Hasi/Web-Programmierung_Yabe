@@ -1,18 +1,11 @@
-<<<<<<< Updated upstream:server.js
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 // Hier wird für datenbankverbindung gebraucht
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-=======
-const express = require('express');
-const app = express();
 
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-const cors = require('cors');
->>>>>>> Stashed changes:app.js
+
 
 //Import Routes
 import tasksRoute from './routes/tasks.js';
@@ -26,10 +19,8 @@ const port = 5000;
 
 // Middleware: 
 app.use(cors());
-<<<<<<< Updated upstream:server.js
 app.use(bodyParser.json());
-=======
->>>>>>> Stashed changes:app.js
+
 //Hier wird die Webside (indexdatei) im ordner public ausgegeben
 app.use(express.static('./public'));
 

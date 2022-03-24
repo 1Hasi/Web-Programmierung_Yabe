@@ -41,8 +41,8 @@ export default function PlaceOrderScreen(props) {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-      <div className="flexAngebot">
-        <div className="col-5">
+      <div className="row top">
+        <div className="col-2">
           <ul>
             <li>
               <div className="card card-body">
@@ -70,7 +70,7 @@ export default function PlaceOrderScreen(props) {
                 <ul>
                   {cart.cartItems.map((item) => (
                     <li key={item.product}>
-                      <div className="rowhorizontal_line">
+                      <div className="row">
                         <div className="col-12">
                           <img
                             src={item.bild}
@@ -96,7 +96,7 @@ export default function PlaceOrderScreen(props) {
             </li>
           </ul>
         </div>
-        <div className="col-3">
+        <div className="col-1">
           <div className="card card-body">
             <ul>
               <li>

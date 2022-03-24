@@ -21,8 +21,8 @@ export default function OrderScreen(props) {
   ) : (
     <div>
       <h1>Bestellnummer: {order._id}</h1>
-      <div className="flexAngebot">
-        <div className="col-5">
+      <div className="row top">
+        <div className="col-2">
           <ul>
             <li>
               <div className="card card-body">
@@ -64,7 +64,7 @@ export default function OrderScreen(props) {
                 <ul>
                   {order.orderItems.map((item) => (
                     <li key={item.product}>
-                       <div className="rowhorizontal_line">
+                       <div className="row">
                         <div className="col-12">
                           <img
                             src={item.bild}
@@ -88,7 +88,7 @@ export default function OrderScreen(props) {
             </li>
           </ul>
         </div>
-        <div className="col-3">
+        <div className="col-1">
           <div className="card card-body">
             <ul>
               <li>

@@ -39,7 +39,7 @@ import ProfileScreen from './screens/ProfileScreen';
           <header className="row">
             <div>
               <Link className="brand" to="/">
-                Katerkiste
+                Y4B3
               </Link>
             </div>
           <div>

@@ -33,15 +33,15 @@ export default function ProductScreen(props) {
       ) : (
         <div>
           <Link to="/">← Zur Übersicht</Link>
-          <div className="flexAngebot">
-            <div className="col-4 abstand höhe mitte">
+          <div className="row top">
+            <div className="col-2">
               <img
                 className="large"
                 src={product.bild}
                 alt={product.name}
               ></img>
             </div>
-            <div className="breite höhe mitte">
+            <div className="col-1">
               <ul>
                 <li>
                   <h1>{product.name}</h1>
@@ -55,7 +55,7 @@ export default function ProductScreen(props) {
                 </li>
               </ul>
             </div>
-            <div className="breite höhe mitte">
+            <div className="col-1">
               <div className="card card-body">
                 <ul>
                   <li>

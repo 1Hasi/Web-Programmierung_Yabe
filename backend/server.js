@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import path from 'path';
 // Hier wird für datenbankverbindung gebraucht
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -11,6 +12,8 @@ import dotenv from 'dotenv';
 import tasksRoute from './routes/tasks.js';
 import userRouter from './routes/userRouter.js';
 import productRouter from './routes/productRouter.js';
+import orderRouter from './routes/orderRouter.js';
+import uploadRouter from './routes/uploadRouter.js';
 
 dotenv.config();
 
@@ -32,11 +35,16 @@ app.listen(port, () => {
 app.use('/', tasksRoute);
 app.use('/api/users', userRouter);
 app.use ('/api/products', productRouter);
+app.use('/api/orders', orderRouter);
+app.use('/api/uploads', uploadRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
 });
 
+
+const __dirname = path.resolve();
+app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 // für alle nicht definierten routen wird fehler ausgegeben
  app.all('*', (req, res) => {
 res.status(404).send('resource not found')

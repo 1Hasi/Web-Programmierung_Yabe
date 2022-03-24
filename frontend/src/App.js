@@ -11,7 +11,6 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import ProductCreateScreen from './screens/ProductCreateScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import AngebotsScreen from './screens/AngebotsScreen';
 import KontaktScreen from './screens/KontaktScreen';
 import UeberUnsScreen from './screens/UeberUnsScreen';
 import CartScreen from './screens/CartScreen';
@@ -46,9 +45,7 @@ import ProfileScreen from './screens/ProfileScreen';
           <div>
             
             <Link to="/">Home</Link>
-              <Link to="/angebote">Angebote</Link>
-              <Link to="/ueberuns">Über uns</Link>
-              <Link to="/kontakt">Kontakt</Link>
+              
 
              
               
@@ -104,7 +101,7 @@ import ProfileScreen from './screens/ProfileScreen';
               <Route path="/products/:id" element={<ProductScreen/>} exact></Route>
               <Route path="/signin" element={<SigninScreen/>}></Route>
               <Route path="/register" element={<RegisterScreen/>}></Route>
-              <Route path="/angebote" element={<AngebotsScreen/>}></Route>
+              <Route path="/" element={<HomeScreen/>}></Route>
               <Route path="/kontakt" element={<KontaktScreen/>}></Route>
               <Route path="/ueberuns" element={<UeberUnsScreen/>}></Route>
 

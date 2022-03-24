@@ -32,7 +32,7 @@ export default function ProductScreen(props) {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/angebote">← Zur Übersicht</Link>
+          <Link to="/">← Zur Übersicht</Link>
           <div className="flexAngebot">
             <div className="col-4 abstand höhe mitte">
               <img

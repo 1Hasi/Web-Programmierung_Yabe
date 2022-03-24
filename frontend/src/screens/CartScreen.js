@@ -39,7 +39,7 @@ export default function CartScreen(props) {
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         {cartItems.length === 0 ? (
           <MessageBox className="Msg">
-            <h2 className="h2W" >Nichts in Korb.</h2><Link to="/angebote"><h2>Jetzt Bestellen.</h2></Link>
+            <h2 className="h2W" >Nichts in Korb.</h2><Link to="/"><h2>Jetzt Bestellen.</h2></Link>
           </MessageBox>
         ) : (
           <ul>

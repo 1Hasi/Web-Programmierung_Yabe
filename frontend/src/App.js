@@ -11,8 +11,6 @@ import ProductEditScreen from './screens/ProductEditScreen';
 import ProductCreateScreen from './screens/ProductCreateScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/RegisterScreen';
-import KontaktScreen from './screens/KontaktScreen';
-import UeberUnsScreen from './screens/UeberUnsScreen';
 import CartScreen from './screens/CartScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen';
@@ -102,8 +100,6 @@ import ProfileScreen from './screens/ProfileScreen';
               <Route path="/signin" element={<SigninScreen/>}></Route>
               <Route path="/register" element={<RegisterScreen/>}></Route>
               <Route path="/" element={<HomeScreen/>}></Route>
-              <Route path="/kontakt" element={<KontaktScreen/>}></Route>
-              <Route path="/ueberuns" element={<UeberUnsScreen/>}></Route>
 
               <Route path="/cart" 
               element={

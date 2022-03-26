@@ -18,9 +18,7 @@ productRouter.get(
   '/mine',
   isAuth,
   expressAsyncHandler(async (req, res) => {
-    const products = await Product.find({ user: {
-        _id: req.user._id,
-        name: req.user.name}, });
+    const products = await Product.find({ user: req.user._id,});
     res.send(products);
   })
 );
@@ -55,9 +53,7 @@ productRouter.post(
       bild : req.body.bild,
       preis : req.body.preis,
       beschreibung : req.body.beschreibung,
-      user: {
-        _id: req.user._id,
-        name: req.user.name},
+      user: req.user._id,
     });
     const createdProduct = await product.save();
     res.send({
@@ -66,9 +62,7 @@ productRouter.post(
       bild: createdProduct.bild,
       preis: createdProduct.preis,
       beschreibung: createdProduct.beschreibung,
-      user: {
-        _id: req.user._id,
-        name: req.user.name},
+      user: req.user._id,
     }, 
       { message: 'Produkt angelegt', product: createdProduct });
   })

@@ -29,7 +29,9 @@ export default function ProductEditScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successUpdate) {
-      navigate('/productlist');
+        if (userInfo.isAdmin){
+        navigate('/productlist')
+      } else {navigate ('/products/mine')}
     }
     if (!product || product._id !== productId || successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET });

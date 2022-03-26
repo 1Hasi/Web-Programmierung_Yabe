@@ -172,6 +172,13 @@ import ProfileScreen from './screens/ProfileScreen';
                 </PrivateRoute>
               }></Route>
 
+              <Route path="/products/:id/edit" 
+                element={
+              <PrivateRoute> 
+                <ProductEditScreen/>
+              </PrivateRoute> 
+                }></Route>
+
               <Route
               path="/productlist"
               element={
@@ -179,13 +186,6 @@ import ProfileScreen from './screens/ProfileScreen';
                   <ProductListScreen />
                 </AdminRoute>
               }></Route>
-            
-            <Route path="/products/:id/edit" 
-            element={
-           <AdminRoute> 
-             <ProductEditScreen/>
-            </AdminRoute> 
-            }></Route>
 
               <Route path="/" element={<HomeScreen/>} exact></Route>
             </Routes>

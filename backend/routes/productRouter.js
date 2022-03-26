@@ -15,6 +15,17 @@ productRouter.get(
 );
 
 productRouter.get(
+  '/mine',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const products = await Product.find({ user: {
+        _id: req.user._id,
+        name: req.user.name}, });
+    res.send(products);
+  })
+);
+
+productRouter.get(
   '/seed',
   expressAsyncHandler(async (req, res) => {
     // await Product.remove({});
@@ -38,13 +49,15 @@ productRouter.get(
 productRouter.post(
   '/',
   isAuth,
-  isAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = new Product({
       name : req.body.name,
       bild : req.body.bild,
       preis : req.body.preis,
-      beschreibung : req.body.beschreibung
+      beschreibung : req.body.beschreibung,
+      user: {
+        _id: req.user._id,
+        name: req.user.name},
     });
     const createdProduct = await product.save();
     res.send({
@@ -52,7 +65,10 @@ productRouter.post(
       name: createdProduct.name,
       bild: createdProduct.bild,
       preis: createdProduct.preis,
-      beschreibung: createdProduct.beschreibung
+      beschreibung: createdProduct.beschreibung,
+      user: {
+        _id: req.user._id,
+        name: req.user.name},
     }, 
       { message: 'Produkt angelegt', product: createdProduct });
   })
@@ -60,7 +76,6 @@ productRouter.post(
 productRouter.put(
   '/:id',
   isAuth,
-  isAdmin,
   expressAsyncHandler(async (req, res) => {
     const productId = req.params.id;
     const product = await Product.findById(productId);
@@ -80,7 +95,6 @@ productRouter.put(
 productRouter.delete(
   '/:id',
   isAuth,
-  isAdmin,
   expressAsyncHandler(async (req, res) => {
     const product = await Product.findById(req.params.id);
     if (product) {

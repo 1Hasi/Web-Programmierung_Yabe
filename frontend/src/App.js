@@ -7,6 +7,7 @@ import PrivateRoute from './components/PrivateRoute';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import ProductListScreen from './screens/ProductListScreen';
+import ProductListMineScreen from './screens/ProductListMineScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import ProductCreateScreen from './screens/ProductCreateScreen';
 import SigninScreen from './screens/SigninScreen';
@@ -56,6 +57,7 @@ import ProfileScreen from './screens/ProfileScreen';
                
              
               {userInfo ? (
+                             
               <div className="dropdown">
                 <Link to="#">
                   {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
@@ -63,6 +65,12 @@ import ProfileScreen from './screens/ProfileScreen';
                 <ul className="dropdown-content">
                 <li>
                     <Link to="/profile">Mein Profil</Link>
+                  </li>
+                  <li>
+                     <Link to="/productanlegen">Produkt Anlegen</Link>
+                  </li>
+                  <li>
+                    <Link to="/products/mine">Meine Produkte</Link>
                   </li>
                   <li>
                     <Link to="/orderhistory">Meine Bestellungen</Link>
@@ -74,6 +82,7 @@ import ProfileScreen from './screens/ProfileScreen';
                   </li>
                 </ul>
               </div>
+             
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
@@ -85,9 +94,6 @@ import ProfileScreen from './screens/ProfileScreen';
                 <ul className="dropdown-content">
                   <li>
                     <Link to="/productlist">Alle Produkte</Link>
-                  </li>
-                  <li>
-                    <Link to="/productanlegen">Produkte Anlegen</Link>
                   </li>
                 </ul>
               </div>
@@ -152,13 +158,20 @@ import ProfileScreen from './screens/ProfileScreen';
                 </PrivateRoute>
               }></Route>
              
+             <Route path="/products/mine" element={
+                <PrivateRoute>
+                  <ProductListMineScreen/>
+                </PrivateRoute>
+              }></Route>
+
               <Route
               path="/productanlegen"
               element={
-                <AdminRoute>
+                <PrivateRoute>
                   <ProductCreateScreen />
-                </AdminRoute>
+                </PrivateRoute>
               }></Route>
+
               <Route
               path="/productlist"
               element={

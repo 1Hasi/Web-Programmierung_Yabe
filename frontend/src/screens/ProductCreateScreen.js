@@ -75,7 +75,7 @@ const productDetails = useSelector((state) => state.productDetails);
           <h1>Produkt Anlegen </h1>
         </div>
         {loadingCreate && <LoadingBox></LoadingBox>}
-        
+        {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
         {loading ? (
           <LoadingBox></LoadingBox>
         ) : error ? (

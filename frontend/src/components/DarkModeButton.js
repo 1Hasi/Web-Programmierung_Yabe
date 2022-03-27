@@ -34,3 +34,4 @@ function switchTheme(e) {
     }    
 }
 toggleSwitch.addEventListener('change', switchTheme, false);
+

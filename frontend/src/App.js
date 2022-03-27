@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { signout } from './actions/userActions';
+import {toggleSwitch, currentTheme } from './components/DarkModeButton';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import HomeScreen from './screens/HomeScreen';
@@ -103,6 +104,10 @@ import UserEditScreen from './screens/UserEditScreen';
                 </ul>
               </div>
             )}
+            <label className="theme-switch" for="checkbox">
+                    <input type="checkbox" id="checkbox" />
+                    <div class="slider round"></div>
+                </label>
             </div>
           </header>
           <main>

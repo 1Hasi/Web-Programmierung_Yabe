@@ -158,20 +158,82 @@ a.brand {
 .row.start {
   justify-content: flex-start;
 }
-.col-1 {
-  flex: 1 1 25rem;
-}
-.col-2 {
-  flex: 2 1 50rem;
-}
-.col-3 {
-  flex: 32 1 75rem;
-}
+
 .min-30 {
   min-width: 30rem;
 }
 .p-1 {
   padding: 1rem;
+}
+
+/* ==== GRID SYSTEM ==== */
+
+.col-0 {
+  width: 0.1%;
+}
+
+.col-1 {
+  width: 4.33%;
+}
+
+.col-2 {
+  width: 12.66%;
+}
+.col-3 {
+  width: 18%;
+}
+
+.col-4 {
+  width: 29.33%;
+}
+
+.col-5 {
+  width: 37.66%;
+}
+
+.col-6 {
+  width: 46%;
+}
+
+.col-7 {
+  width: 54.33%;
+}
+
+.col-8 {
+  width: 62.66%;
+}
+
+.col-9 {
+  width: 71%;
+}
+
+.col-10 {
+  width: 79.33%;
+}
+
+.col-11 {
+  width: 87.66%;
+}
+
+.col-12 {
+  width: 96%;
+}
+
+.col-6-2 {
+  width: 29.33%;
+  margin-bottom: 100px;
+}
+
+.flexAngebot{
+  display: flex;
+  justify-content: center;
+}
+
+img.small {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Darkmodeslider */
@@ -291,6 +353,17 @@ img.large {
   border-radius: 0.5rem;
   margin: 1rem;
 }
+
+.carda {
+  border: 0.1rem  var(--middle) solid;
+  background-color:  var(--white);
+  border-radius: 0.5rem;
+  margin: 1rem;
+}
+.carda:hover {
+  background-color:  var(--light);
+}
+
 .card-body {
   padding: 1rem;
 }
@@ -372,15 +445,15 @@ img.large {
 
 /* Checkout Steps */
 .checkout-steps > div {
-  border-top: 0.3rem var(--middle) solid;
-  color: var(--middle) ;
+  border-top: 0.3rem var(--light) solid;
+  color: var(--light) ;
   flex: 1;
   padding: 1rem;
   font-weight: bold;
 }
 .checkout-steps > div.active {
-  border-top-color: var(--light);
-  color: var(--light);
+  border-top-color: var(--middle);
+  color: var(--middle);
 }
 /* Table */
 .table {

@@ -108,7 +108,7 @@ export default function ProductListScreen(props) {
                     <button
                       type="button"
                       className="small"
-                      onClick={() => navigate(`/products/${product._id}/edit`)}
+                      onClick={() => navigate(`/products/${product._id}/adminedit`)}
                     >
                       Bearbeiten
                     </button>

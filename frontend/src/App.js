@@ -9,6 +9,7 @@ import ProductScreen from './screens/ProductScreen';
 import ProductListScreen from './screens/ProductListScreen';
 import ProductListMineScreen from './screens/ProductListMineScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
+import ProductAdminEditScreen from './screens/ProductAdminEditScreen';
 import ProductCreateScreen from './screens/ProductCreateScreen';
 import SigninScreen from './screens/SigninScreen';
 import RegisterScreen from './screens/RegisterScreen';
@@ -189,6 +190,14 @@ import UserEditScreen from './screens/UserEditScreen';
               element={
                 <AdminRoute>
                   <ProductListScreen />
+                </AdminRoute>
+              }></Route>
+
+              <Route
+              path="/products/:id/adminedit"
+              element={
+                <AdminRoute>
+                  <ProductAdminEditScreen />
                 </AdminRoute>
               }></Route>
 

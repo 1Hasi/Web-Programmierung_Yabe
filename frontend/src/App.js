@@ -103,10 +103,6 @@ import UserEditScreen from './screens/UserEditScreen';
                 </ul>
               </div>
             )}
-            <label className="theme-switch" for="checkbox">
-                    <input type="checkbox" id="checkbox" />
-                    <div class="slider round"></div>
-                </label>
             </div>
           </header>
           <main>

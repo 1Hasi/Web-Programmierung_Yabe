@@ -22,6 +22,8 @@ import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
+import SearchBox from './components/SearchBox';
+import SearchScreen from './screens/SearchScreen';
 
 
   function App() {
@@ -43,6 +45,9 @@ import UserEditScreen from './screens/UserEditScreen';
               <Link className="brand" to="/">
                 Y4B3
               </Link>
+            </div>
+            <div>
+             <SearchBox />
             </div>
           <div>
             
@@ -111,7 +116,7 @@ import UserEditScreen from './screens/UserEditScreen';
               <Route path="/products/:id" element={<ProductScreen/>} exact></Route>
               <Route path="/signin" element={<SigninScreen/>}></Route>
               <Route path="/register" element={<RegisterScreen/>}></Route>
-              
+              <Route path="/search/name/:name?" element={<SearchScreen/>} exact ></Route>
 
               <Route path="/cart" 
               element={

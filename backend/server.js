@@ -45,6 +45,7 @@ app.use((err, req, res, next) => {
 
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
 // für alle nicht definierten routen wird fehler ausgegeben
  app.all('*', (req, res) => {
 res.status(404).send('resource not found')

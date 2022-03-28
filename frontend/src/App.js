@@ -116,7 +116,7 @@ import SearchScreen from './screens/SearchScreen';
               <Route path="/products/:id" element={<ProductScreen/>} exact></Route>
               <Route path="/signin" element={<SigninScreen/>}></Route>
               <Route path="/register" element={<RegisterScreen/>}></Route>
-              <Route path="/search/name/:name?" element={<SearchScreen/>} exact ></Route>
+              <Route path="/search/name" element={<SearchScreen/>} exact ></Route>
 
               <Route path="/cart" 
               element={

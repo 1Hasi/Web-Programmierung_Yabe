@@ -3,13 +3,17 @@ import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
-import { listProducts } from '../actions/productActions';
+import { listProducts, listSearchedProducts } from '../actions/productActions';
+
+var prods;
+
+var searchedProducts = [];
 
 export default function HomeScreen() {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   const { loading, error, products } = productList;
-
+  prods = productList;
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
@@ -29,3 +33,14 @@ export default function HomeScreen() {
     </div>
   );
 }
+
+ export function searchProducts(value) {
+  prods['products'].forEach(prod => {
+    if(prod['name'] == value) {
+      console.log('penis');
+      searchedProducts.push(prod);
+    }
+  });
+
+  console.log(searchedProducts);
+ }

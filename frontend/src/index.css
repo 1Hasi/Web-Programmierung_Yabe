@@ -68,6 +68,7 @@ h1 {
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
+ 
 }
 
 a {
@@ -222,6 +223,14 @@ a.brand {
 .col-6-2 {
   width: 29.33%;
   margin-bottom: 100px;
+}
+
+.col-13{
+  flex: 2 1 50rem;
+}
+
+.col-14{
+  flex: 1 1 25rem;
 }
 
 .flexAngebot{

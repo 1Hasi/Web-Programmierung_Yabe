@@ -41,8 +41,8 @@ export default function PlaceOrderScreen(props) {
   return (
     <div>
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-      <div className="flexAngebot">
-        <div className="col-6">
+      <div className="row top">
+        <div className="col-13">
           <ul>
             <li>
               <div className="card card-body">
@@ -96,7 +96,7 @@ export default function PlaceOrderScreen(props) {
             </li>
           </ul>
         </div>
-        <div className="col-4">
+        <div className="col-14">
           <div className="card card-body">
             <ul>
               <li>

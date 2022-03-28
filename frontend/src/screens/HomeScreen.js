@@ -20,7 +20,7 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
-      <div className='row'><SearchBox/></div>
+      <div className='row center'><SearchBox/></div>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

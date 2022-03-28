@@ -22,7 +22,6 @@ import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
-import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
 
 
@@ -45,9 +44,6 @@ import SearchScreen from './screens/SearchScreen';
               <Link className="brand" to="/">
                 Y4B3
               </Link>
-            </div>
-            <div>
-             <SearchBox />
             </div>
           <div>
             

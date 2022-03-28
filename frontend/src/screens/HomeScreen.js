@@ -4,6 +4,7 @@ import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { listProducts, listSearchedProducts } from '../actions/productActions';
+import SearchBox from '../components/SearchBox';
 
 var prods;
 
@@ -19,6 +20,7 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div>
+      <div className='row'><SearchBox/></div>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
@@ -36,11 +38,10 @@ export default function HomeScreen() {
 
  export function searchProducts(value) {
   prods['products'].forEach(prod => {
-    if(prod['name'] == value) {
+    if(prod['name'].toLowerCase().toUpperCase() == value) {
       console.log('penis');
-      searchedProducts.push(prod);
-    }
+      searchedProducts.push(prod);    
+    } 
   });
-
   console.log(searchedProducts);
  }

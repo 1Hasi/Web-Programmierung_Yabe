@@ -22,7 +22,6 @@ import OrderHistoryScreen from './screens/OrderHistoryScreen';
 import ProfileScreen from './screens/ProfileScreen';
 import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
-import SearchScreen from './screens/SearchScreen';
 
 
   function App() {
@@ -112,7 +111,6 @@ import SearchScreen from './screens/SearchScreen';
               <Route path="/products/:id" element={<ProductScreen/>} exact></Route>
               <Route path="/signin" element={<SigninScreen/>}></Route>
               <Route path="/register" element={<RegisterScreen/>}></Route>
-              <Route path="/search/name" element={<SearchScreen/>} exact ></Route>
 
               <Route path="/cart" 
               element={

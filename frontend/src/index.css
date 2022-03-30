@@ -499,3 +499,29 @@ img.large {
 .active {
   font-weight: bold;
 }
+
+/*DatePicker*/
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+ 
+}
+
+.input-container .react-datepicker-wrapper {
+  margin: 12px 0;
+  width: 100%;
+}
+
+.input-container .react-datepicker-wrapper input {
+  padding: 4px 12px;
+}
+
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+    display: block;
+    width: 100%;
+}

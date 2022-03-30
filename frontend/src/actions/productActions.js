@@ -68,7 +68,7 @@ export const detailsProduct = (productId) => async (dispatch) => {
     });
   }
 };
-export const createProduct = (name, bild, preis, beschreibung) => async (dispatch, getState) => {
+export const createProduct = (name, bild, startpreis, beschreibung, createdAt, minErhöhung,) => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_CREATE_REQUEST });
   const {
     userSignin: { userInfo },
@@ -78,8 +78,10 @@ export const createProduct = (name, bild, preis, beschreibung) => async (dispatc
       {
         name,
         bild,
-        preis,
+        startpreis,
         beschreibung,
+        createdAt,
+        minErhöhung,
       },
       {
         headers: { Authorization: `Bearer ${userInfo.token}` },

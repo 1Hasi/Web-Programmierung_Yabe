@@ -7,7 +7,6 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
 
-
 //Import Routes
 import tasksRoute from './routes/tasks.js';
 import userRouter from './routes/userRouter.js';

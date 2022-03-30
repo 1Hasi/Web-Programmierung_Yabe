@@ -6,6 +6,7 @@ import { detailsProduct, createProduct } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { PRODUCT_CREATE_RESET } from '../constants/productConstants';
+import DatePicker from 'react-datepicker';
 
 export default function ProductCreateScreen(props) {
     const navigate = useNavigate();
@@ -13,8 +14,10 @@ export default function ProductCreateScreen(props) {
     const { id: productId } = params;
     const [name, setName] = useState('');
     const [bild, setBild] = useState('');
-    const [preis, setPreis] = useState('');
+    const [startpreis, setStartPreis] = useState('');
     const [beschreibung, setBeschreibung] = useState('');
+    const [createdAt, setCreatedAt] = useState(new Date());
+    const [minErhöhung, setMinErhöhung] = useState('');
 
 const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
@@ -31,7 +34,7 @@ const productDetails = useSelector((state) => state.productDetails);
   useEffect(() => {
     if (successCreate) {
       dispatch({ type: PRODUCT_CREATE_RESET });
-      navigate(`/products/${createdProduct._id}/edit`);
+      navigate('/');
     }  
     }, 
     [createdProduct, navigate, product, dispatch, productId, successCreate]
@@ -39,7 +42,7 @@ const productDetails = useSelector((state) => state.productDetails);
   const createHandler = (e) => {
     e.preventDefault();
     dispatch(
-      createProduct(name, bild, preis, beschreibung)
+      createProduct(name, bild, startpreis, beschreibung, createdAt, minErhöhung)
     );
   };
 
@@ -93,13 +96,27 @@ const productDetails = useSelector((state) => state.productDetails);
               ></input>
             </div>
             <div>
-              <label htmlFor="preis">Preis</label>
+              <label htmlFor="startpreis">Startpreis</label>
               <input
-                id="preis"
-                type="text"
-                placeholder="Preis eingeben"
+                id="startpreis"
+                type="number"
+                placeholder="Startpreis eingeben"
+                value={startpreis}
+                step='0.01'
                 
-                onChange={(e) => setPreis(e.target.value)}
+                onChange={(e) => setStartPreis(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="minErhöhung">Mindest Erhöung</label>
+              <input
+                id="minErhöhung"
+                type="number"
+                placeholder="mindest Erhöhungsbetrag angeben"
+                value={minErhöhung}
+                step='0.01'
+                
+                onChange={(e) => setMinErhöhung(e.target.value)}
               ></input>
             </div>
             <div>
@@ -135,6 +152,16 @@ const productDetails = useSelector((state) => state.productDetails);
                 
                 onChange={(e) => setBeschreibung(e.target.value)}
               ></textarea>
+            </div>
+            <div className='input-container'>
+              <label htmlFor="createdAt">Auktionsbeginn</label>
+              <DatePicker
+              selected={createdAt}
+              onChange={date => setCreatedAt(date)}
+              minDate={new Date()}
+              dateFormat='MMMM d, yyyy'
+              required
+            />
             </div>
             <div>
               <label></label>

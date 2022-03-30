@@ -14,6 +14,7 @@ export default function Product(props) {
           <h2>{product.name}</h2>
        </Link>
         <div className="price">{product.preis}€</div>
+        <div className= "endDate">{product.endDate} </div>
       </div>
     </div>
   );

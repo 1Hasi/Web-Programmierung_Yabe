@@ -52,19 +52,20 @@ productRouter.post(
       name : req.body.name,
       bild : req.body.bild,
       preis : req.body.preis,
+      startpreis: req.body.startpreis,
       beschreibung : req.body.beschreibung,
       user: req.user._id,
+      createdAt: req.body.createdAt,
+      endDate: req.body.endDate,
+      winner: req.body.winner,
+      gebote: req.body.gebote,
+      minErhöhung: req.body.minErhöhung,
+      active: req.body.active,
     });
     const createdProduct = await product.save();
-    res.send({
-      _id: createdProduct._id,
-      name: createdProduct.name,
-      bild: createdProduct.bild,
-      preis: createdProduct.preis,
-      beschreibung: createdProduct.beschreibung,
-      user: req.user._id,
-    }, 
-      { message: 'Produkt angelegt', product: createdProduct });
+    res
+    .status(201)
+    .send({ message: 'Produkt angelegt', product: createdProduct });
   })
 );
 productRouter.put(
@@ -76,8 +77,9 @@ productRouter.put(
     if (product) {
       product.name = req.body.name;
       product.bild = req.body.bild;
-      product.preis = req.body.preis;
+      product.startpreis = req.body.startpreis;
       product.beschreibung = req.body.beschreibung;
+      product.minErhöhung = req.body.minErhöhung;
       const updatedProduct = await product.save();
       res.send({ message: 'Produkt wurde aktualisiert ', product: updatedProduct });
     } else {

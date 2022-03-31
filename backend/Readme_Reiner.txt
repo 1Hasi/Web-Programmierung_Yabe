@@ -10,7 +10,7 @@ im frontend:
 
 im backend
 - npm install
-- .env Datei mit inhalt erstellen:
+- .env Dateiinhalt (falls was schief geht):
 "MONGO_URI=mongodb+srv://Hasi:666OchsenhuepfennichtwiePferde666@produkt.yp52w.mongodb.net/YabeProjekt?retryWrites=true&
 JWT_SECRET=somethingsecret"
 - npm start

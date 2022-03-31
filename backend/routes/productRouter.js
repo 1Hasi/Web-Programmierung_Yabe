@@ -56,6 +56,7 @@ productRouter.post(
       beschreibung : req.body.beschreibung,
       user: req.user._id,
       createdAt: req.body.createdAt,
+      startedAt: req.body.startedAt,
       endDate: req.body.endDate,
       winner: req.body.winner,
       minErhöhung: req.body.minErhöhung,

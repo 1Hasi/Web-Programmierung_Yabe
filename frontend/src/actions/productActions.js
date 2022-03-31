@@ -71,7 +71,7 @@ export const detailsProduct = (productId) => async (dispatch) => {
     });
   }
 };
-export const createProduct = (name, bild, startpreis, beschreibung, createdAt, minErhöhung,) => async (dispatch, getState) => {
+export const createProduct = (name, bild, startpreis, beschreibung, startedAt, endDate, minErhöhung,) => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_CREATE_REQUEST });
   const {
     userSignin: { userInfo },
@@ -83,7 +83,8 @@ export const createProduct = (name, bild, startpreis, beschreibung, createdAt, m
         bild,
         startpreis,
         beschreibung,
-        createdAt,
+        startedAt,
+        endDate,
         minErhöhung,
       },
       {
@@ -117,7 +118,6 @@ export const bieten = (productId, gebot) => async (dispatch, getState) => {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       }
     );
-    console.log('y');
     dispatch({
       type: PRODUCT_BIETEN_SUCCESS,
       payload: data.gebot,

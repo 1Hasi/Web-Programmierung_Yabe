@@ -4,6 +4,7 @@ import { Link, useParams, useNavigate } from 'react-router-dom';
 import { detailsProduct, bieten } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import { PRODUCT_BIETEN_RESET } from '../constants/productConstants';
 
 
 export default function ProductScreen(props) {
@@ -26,18 +27,25 @@ export default function ProductScreen(props) {
   } = productBieten;
 
   useEffect(() => {
+    if (successBieten) {
+      dispatch({ type: PRODUCT_BIETEN_RESET });
+      navigate('/');
+    }
     dispatch(detailsProduct(productId));
-  }, [dispatch, productId, successBieten ]);
+ }, 
+    [dispatch, productId, successBieten ]);
 
     const gebotHandler = (e) => {
       e.preventDefault();
-      if (gebot >= product.preis + product.minErhöhung) {
-      dispatch(
-        bieten(productId, {gebot, userInfo}),
-      );
-      } else {
-        alert(`Das Gebot muss mindestens ${product.minErhöhung}€ höher sein als der momentane Preis.`)
-      }
+        if (userInfo) {
+          if (gebot >= product.preis + product.minErhöhung) {
+          dispatch(
+            bieten(productId, {gebot, userInfo}),
+          );
+          } else {
+            alert(`Das Gebot muss mindestens ${product.minErhöhung}€ höher sein als der momentane Preis.`)
+          }
+        } else {alert('Sie müssen sich anmelden, um zu bieten.')}
     };
 
 

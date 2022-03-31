@@ -16,7 +16,8 @@ export default function ProductCreateScreen(props) {
     const [bild, setBild] = useState('');
     const [startpreis, setStartPreis] = useState('');
     const [beschreibung, setBeschreibung] = useState('');
-    const [createdAt, setCreatedAt] = useState(new Date());
+    const [startedAt, setStartedAt] = useState(new Date());
+    const [endDate, setendDate] = useState(new Date());
     const [minErhöhung, setMinErhöhung] = useState('');
 
 const productDetails = useSelector((state) => state.productDetails);
@@ -40,9 +41,13 @@ const productDetails = useSelector((state) => state.productDetails);
     [createdProduct, navigate, product, dispatch, productId, successCreate]
   );
   const createHandler = (e) => {
+    
+    endDate.setUTCMinutes(endDate.getUTCMinutes() + 15);
     e.preventDefault();
+    // endDate.setUTCHours(endDate.getUTCHours() + 2);
+    // startedAt.setUTCHours(startedAt.getUTCHours() + 2);
     dispatch(
-      createProduct(name, bild, startpreis, beschreibung, createdAt, minErhöhung)
+      createProduct(name, bild, startpreis, beschreibung, startedAt, endDate, minErhöhung)
     );
   };
 
@@ -156,10 +161,11 @@ const productDetails = useSelector((state) => state.productDetails);
             <div className='input-container'>
               <label htmlFor="createdAt">Auktionsbeginn</label>
               <DatePicker
-              selected={createdAt}
-              onChange={date => setCreatedAt(date)}
+              selected={startedAt}
+              onChange={date => setStartedAt(date)}
               minDate={new Date()}
-              dateFormat='MMMM d, yyyy'
+              value={startedAt}
+              dateFormat='d MMMM yyyy h:m'
               required
             />
             </div>

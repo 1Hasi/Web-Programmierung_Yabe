@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
 
   bild: {type: String, required: true },
 
-  preis: {type: Number},
+  preis: {type: Number}, 
   
   startpreis: {type: Number, required: true, default: 0},
   
@@ -16,9 +16,9 @@ const productSchema = new mongoose.Schema({
 
   createdAt: { type: Date, default: Date.now() },
 
-  //startedAt: {},
+  startedAt: {type: Date, default: Date() },
 
-  endDate: { type: Date, required: true, default: Date.now() + 900000  },
+  endDate: { type: Date, required: true },
 
   winner: { type: mongoose.Schema.ObjectId, ref: 'User' },
 

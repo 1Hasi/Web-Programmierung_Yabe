@@ -58,7 +58,6 @@ productRouter.post(
       createdAt: req.body.createdAt,
       endDate: req.body.endDate,
       winner: req.body.winner,
-      gebote: req.body.gebote,
       minErhöhung: req.body.minErhöhung,
       active: req.body.active,
     });
@@ -68,6 +67,50 @@ productRouter.post(
     .send({ message: 'Produkt angelegt', product: createdProduct });
   })
 );
+
+productRouter.post(
+  '/:id/gebot',
+  isAuth,
+  expressAsyncHandler(async (req, res) =>{
+    const productId = req.params.id;
+    const product = await Product.findById(productId); 
+    if (product) {
+      const gebot = {
+        user: req.user._id,
+        gebot: req.body.gebot 
+      };
+      if 
+      (req.body.gebot >= product.preis + product.minErhöhung ) {
+      product.gebote.push(gebot) ;
+      product.preis = req.body.gebot;
+    } else {res.send({message: `Das Gebot muss mindestens ${product.minErhöhung}€ höher sein als der momentane Preis`})
+  }
+      
+      const createdGebot = await product.save();
+        res
+          .status(201)
+          .send({ message: 'Gebot erstellt', gebot: createdGebot });
+
+
+    } else {
+        res
+          .status(404)
+          .send({message: 'Produkt nicht gefunden'})
+    }
+
+
+   /* if (gebot.gebot % 1 !== 0 && !!gebot.gebot) {
+      return next(
+        new AppError(
+          'Money fields are required and must only have two decimal places',
+          400
+        )
+      );
+    }*/
+
+  } )
+);
+
 productRouter.put(
   '/:id',
   isAuth,

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { detailsProduct } from '../actions/productActions';
+import { detailsProduct, bieten } from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -11,18 +11,35 @@ export default function ProductScreen(props) {
   const dispatch = useDispatch();
   const params = useParams();
   const {id: productId} = params;
-  const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
 
+  const [gebot, setGebot] = useState('');
+
+  const productBieten = useSelector((state) => state.productBieten);
+  const {
+    loading: loadingBieten,
+    error: errorBieten,
+    success: successBieten,
+  } = productBieten;
+
   useEffect(() => {
     dispatch(detailsProduct(productId));
-  }, [dispatch, productId]);
-  const addToCartHandler = () => {
-    navigate(`/cart/${productId}?qty=${qty}`);
-  };
+  }, [dispatch, productId, successBieten ]);
+
+    const gebotHandler = (e) => {
+      e.preventDefault();
+      if (gebot >= product.preis + product.minErhöhung) {
+      dispatch(
+        bieten(productId, {gebot, userInfo}),
+      );
+      } else {
+        alert(`Das Gebot muss mindestens ${product.minErhöhung}€ höher sein als der momentane Preis.`)
+      }
+    };
+
 
   return (
     <div>
@@ -48,52 +65,59 @@ export default function ProductScreen(props) {
                 </li>
                 <li>
                 </li>
-                <li><h3> Preis: {product.preis}€</h3></li>
+                <li><h3> Startreis: {product.startpreis}€</h3></li>
+                <li><h3> Aktueller Preis: {product.preis}€</h3></li>
                 <li>
                   <h3>Beschreibung:</h3>
                   <p>{product.beschreibung}</p>
                 </li>
+                <li>
+                  <h3>erstellt von:</h3>
+                  <p>{product.user}</p>
+                </li>
               </ul>
             </div>
+            
             <div className="col-13">
-              <div className="card card-body">
+              <div className="card card-body" >
+              <form  onSubmit={gebotHandler}>
                 <ul>
                   <li>
                     <div className="row">
-                      <div>Preis</div>
+                      <div>Aktueller Preis</div>
                       <div className="price">{product.preis}€</div>
                     </div>
                   </li>
                   <li>
                         <div className="row">
-                          <div>Anzahl</div>
+                          <div>Mindestgebot</div>
                           <div>
-                            <select
-                              value={qty}
-                              onChange={(e) => setQty(e.target.value)}
-                            >
-                              {[...Array(10).keys()].map(
-                                (x) => (
-                                  <option key={x + 1} value={x + 1}>
-                                    {x + 1}
-                                  </option>
-                                )
-                              )}
-                            </select>
+                          <input
+                            type='number'
+                            placeholder={`${(
+                              (product.preis + product.minErhöhung)
+                              )}€`}
+                            name='gebot'
+                            value={gebot}
+                            step='0.01'
+                            onChange={e => setGebot(e.target.value)}
+                            disabled={!product.active}
+                            required
+                          />
+                          
                           </div>
                         </div>
                       </li>
                       <li>
-                        <button
-                          onClick={addToCartHandler}
-                          className="primary block"
-                        >
-                          Zum Warenkorb
-                        </button>
+                      <button className="primary block" type="submit">
+                        Bieten
+                      </button>
                       </li>
                 </ul>
+                </form>
               </div>
             </div>
+            
           </div>
         </div>
       )}

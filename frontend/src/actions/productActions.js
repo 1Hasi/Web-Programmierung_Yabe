@@ -18,6 +18,9 @@ import {
   PRODUCT_DELETE_REQUEST,
   PRODUCT_DELETE_FAIL,
   PRODUCT_DELETE_SUCCESS,
+  PRODUCT_BIETEN_REQUEST,
+  PRODUCT_BIETEN_SUCCESS,
+  PRODUCT_BIETEN_FAIL,
 } from '../constants/productConstants';
 
 export const listProducts = () => async (dispatch) => {
@@ -101,6 +104,36 @@ export const createProduct = (name, bild, startpreis, beschreibung, createdAt, m
     });
   }
 };
+
+export const bieten = (productId, gebot) => async (dispatch, getState) => {
+  dispatch({ type: PRODUCT_BIETEN_REQUEST });
+  const {
+    userSignin: { userInfo },
+  } = getState();
+  try {
+    const { data } = await Axios.post(`/api/products/${productId}/gebot`, gebot,
+      
+      {
+        headers: { Authorization: `Bearer ${userInfo.token}` },
+      }
+    );
+    console.log('y');
+    dispatch({
+      type: PRODUCT_BIETEN_SUCCESS,
+      payload: data.gebot,
+    });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_BIETEN_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+
 export const updateProduct = (product) => async (dispatch, getState) => {
   dispatch({ type: PRODUCT_UPDATE_REQUEST, payload: product });
   const {

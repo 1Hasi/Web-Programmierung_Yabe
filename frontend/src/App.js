@@ -220,52 +220,9 @@ import UserEditScreen from './screens/UserEditScreen';
             </Routes>
           </main>
           <footer className="row center">										
-		      	<div className="foot">
-			      	  <h4>Ihr habt Fragen? Schreibt uns!</h4>
-				      <div className="socialmedia left">
-                <a href="https://www.instagram.com/kater_kiste/" target="_blank" rel="noreferrer">
-                  <img src="img/icons/instagram.png" alt="Intagram"/>
-                </a>
-
-                <a href="https://www.facebook.com/kater.kiste/" target="_blank" rel="noreferrer">
-                  <img src="img/icons/facebook.png" alt="Facebook"/>
-                </a>
-
-					      <a href="https://twitter.com/katerkiste/" target="_blank" rel="noreferrer">
-							    <img src="img/icons/twitter.png" alt="Twitter"/>
-					    	</a>
-				      </div>
-			      </div>
-			      <div className="foot">
-              <Link to="/kontakt"><hkk>Kontakt</hkk></Link>
-                <p> &#169; Katerkiste GmbH <br></br>
-                    Katzenallee 69 <br></br>
-                    89522 Heidenheim <br></br>
-                    Tel.: 07321 9642069 <br></br>
-                </p>
+		      	<div>
+              Y4B3 GmbH
             </div>
-            <div className="foot">
-                <h4>Sicher und bequem zahlen</h4>
-
-				      <div className="pay left">
-                  <a href="https://paypal.com/" target="_blank" rel="noreferrer">
-                    <img src="img/icons/paypal.png" alt="PayPal"></img>
-                  </a>
-                  <a href="https://visa.de/" target="_blank" rel="noreferrer">
-                    <img src="img/icons/visa.png" alt="Visa"></img>
-                  </a>
-                  <a href="https://mastercard.de/" target="_blank" rel="noreferrer">
-                    <img src="img/icons/mastercard.png" alt="MasterCard"></img>
-                  </a>
-              </div>
-		        </div>
-			      <div className="foot">
-				        <a href="#totop">
-					        <button className="totop_icon" type="button" title="Zum Anfang der Seite">
-					          	&uArr;
-					        </button>
-			        	</a>
-		        	</div>
 	       
           
           </footer>
